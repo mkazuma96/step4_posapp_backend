@@ -15,7 +15,7 @@ from .seed import seed_products
 
 app = FastAPI(title="Simple POS Backend", version="0.1.0")
 
-# CORS (ローカル開発用)
+# CORS (ローカル開発用 & Azure)
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
@@ -23,6 +23,8 @@ app.add_middleware(
         "http://localhost:3001",
         "http://127.0.0.1:3000",
         "http://127.0.0.1:3001",
+        "https://app-002-gen10-step3-1-py-oshima57.azurewebsites.net",
+        # フロントエンドのAzure URLを追加する場合はここに追加
     ],
     allow_credentials=True,
     allow_methods=["*"],

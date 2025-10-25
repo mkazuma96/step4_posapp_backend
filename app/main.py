@@ -24,7 +24,7 @@ app.add_middleware(
         "http://127.0.0.1:3000",
         "http://127.0.0.1:3001",
         "https://app-002-gen10-step3-1-py-oshima57.azurewebsites.net",
-        # フロントエンドのAzure URLを追加する場合はここに追加
+        "https://app-002-gen10-step3-1-node-oshima57.azurewebsites.net",
     ],
     allow_credentials=True,
     allow_methods=["*"],

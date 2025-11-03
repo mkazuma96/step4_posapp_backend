@@ -36,8 +36,16 @@ app.add_middleware(
 def on_startup():
     # テーブル作成と初回シード
     Base.metadata.create_all(bind=engine)
-    with next(get_db()) as db:
+    # セッションを作成してシードを実行
+    from sqlalchemy.orm import Session
+    db = Session(bind=engine)
+    try:
         seed_products(db)
+        print("商品データの初期化が完了しました")
+    except Exception as e:
+        print(f"商品データの初期化エラー: {e}")
+    finally:
+        db.close()
 
 
 # ---------- Step0: 担当者/店番 セッションAPI ----------
